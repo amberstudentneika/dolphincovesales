@@ -12,7 +12,7 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//nm,mnmnkmmn
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,3 +21,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+
+//Sales representative
+Route::GET('/add', [App\Http\Controllers\SaleRepController::class, 'index']);
+Route::POST('/add', [App\Http\Controllers\SaleRepController::class, 'add'])->name('AddSRep');
+//Commission and Target
+
+Route::GET('/viewCT', [App\Http\Controllers\SaleRepController::class, 'indexCT']);
+//Route::GET('/addCT', [App\Http\Controllers\SaleRepController::class, 'addCT']);
+Route::GET('/addCT', function () {return view('AddCT');});
+Route::POST('/addCT', [App\Http\Controllers\SaleRepController::class, 'addCT'])->name('AddCT');

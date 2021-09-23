@@ -13,20 +13,32 @@ class CreateUsersSeeder extends Seeder
      */
     public function run()
     {
-        $user = [
-            [
-                'name'=>'Admin',
-                'email'=>'admin@gmail.com',
-                'is_admin'=>'1',
-                'password'=> bcrypt('12345678'),
-            ],
-            [
-                'name'=>'User',
-                'email'=>'user@gmail.com',
-                'is_admin'=>'0',
-                'password'=> bcrypt('12345678'),
-            ],
-        ];
+        $user= [
+                    [
+                        'is_admin'=> '1',
+                        'name'=>'Neika Lewii',
+                        'email'=>'nlewis_admin@dolphincove.com',
+                        'password'=> bcrypt('12345678'),
+                        'created_by_admin' => 'system'
+
+                    ],
+                     [
+                                'is_admin'=> '0',
+                                'name'=>'Amy Wong',
+                                'email'=>'awong@dolphincove.com',
+                                'password'=> bcrypt('12345678'),
+                                'created_by_admin' => 'system'
+
+                     ],
+                     [
+                                'is_admin'=> '0',
+                                'name'=>'Malah Lewi',
+                                'email'=>'mlewi@dolphincove.com',
+                                'password'=> bcrypt('12345678'),
+                                'created_by_admin' => 'system'
+                     ]
+
+              ];
 
         foreach ($user as $key => $value) {
             User::create($value);
